@@ -11,13 +11,11 @@
 
 ## 프로젝트 구성
 
-- Kotlin
-- Spring Boot 2.7.3
-- Spring WebClient
-- Spring Data JPA
-- QueryDSL
-- Gradle 7.6.1
-- H2 Database 2.1.214
+- Kotlin 2.0.0
+- Spring Boot 3.3.2
+- Gradle 8.9
+- H2 Database
+- KotlinDSL
 
 ### 프로젝트 Build
 1. `git repository` clone or download
@@ -38,15 +36,15 @@
 ## 프로젝트 정보
 
 ### Server 정보
-|      구분      | 정보      |
-|:------------:|---------|
-|     Port     | `10010` |
-| Context-Path | `/bss`  |
+|      구분      | 정보     |
+|:------------:|--------|
+|     Port     | `8080` |
+| Context-Path | `/bss` |
 
 ### API 테스트 방법
 
 1. `Swagger-ui` 이용
-   - http://localhost:10010/bss/swagger-ui/index.html
+   - http://localhost:8080/bss/swagger-ui/index.html
 2. `IntelliJ .http` 이용
    - `/http/bss-api-test.http` 파일의 `request` 활용하여 API 테스트 요청
 

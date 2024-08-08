@@ -33,16 +33,32 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-    implementation("org.springdoc:springdoc-openapi-ui:1.6.13")
+    val jdslVersion = "3.4.1"
+    implementation("com.linecorp.kotlin-jdsl:jpql-dsl:$jdslVersion")
+    implementation("com.linecorp.kotlin-jdsl:jpql-render:$jdslVersion")
+    implementation("com.linecorp.kotlin-jdsl:spring-data-jpa-support:$jdslVersion")
+
+    val springdocVersion = "2.6.0"
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-api:$springdocVersion")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:$springdocVersion")
 
     runtimeOnly("com.h2database:h2")
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("io.projectreactor:reactor-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude(module = "junit")
+        exclude(module = "mockito-core")
+    }
+
+    //kotest
+    testImplementation("io.kotest:kotest-runner-junit5:5.8.0")
+    testImplementation("io.kotest:kotest-assertions-core:5.8.0")
+    testImplementation("io.kotest:kotest-property:5.8.0")
+    testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.3")
 }
 
 tasks.withType(KotlinCompilationTask::class.java) {

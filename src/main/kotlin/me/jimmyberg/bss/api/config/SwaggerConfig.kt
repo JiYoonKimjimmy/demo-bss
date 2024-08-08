@@ -1,4 +1,4 @@
-package com.kakaobank.bss.api.config
+package me.jimmyberg.bss.api.config
 
 import io.swagger.v3.oas.models.OpenAPI
 import io.swagger.v3.oas.models.info.Info

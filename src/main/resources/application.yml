@@ -15,5 +15,5 @@ spring:
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:~/h2/bss
-    username: admin
-    password: admin1234
+    username: sa
+    password:

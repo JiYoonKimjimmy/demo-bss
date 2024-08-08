@@ -1,4 +1,4 @@
-package com.kakaobank.bss
+package me.jimmyberg.bss
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

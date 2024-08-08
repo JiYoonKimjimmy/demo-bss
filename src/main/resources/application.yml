@@ -1,11 +1,12 @@
 server:
-  port: 10010
+  port: 8080
   servlet:
     context-path: /bss
 
 spring:
   # jpa
   jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
     show-sql: true
     generate-ddl: true
     hibernate:
@@ -13,9 +14,6 @@ spring:
   # datasource
   datasource:
     driver-class-name: org.h2.Driver
-    # server mode
-    url: jdbc:h2:tcp://localhost:9092/~/h2/bss
-    # embedded mode
-    #url: jdbc:h2:~/h2/bss
+    url: jdbc:h2:~/h2/bss
     username: admin
     password: admin1234

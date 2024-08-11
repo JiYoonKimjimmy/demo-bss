@@ -1,0 +1,13 @@
+# open api custom properties
+open-api:
+  kakao:
+    host: "https://dapi.kakao.com"
+    authorization: "KakaoAK 418ba7355f1b7a4e69347900d110b660"
+    search-blog:
+      url: "/v2/search/blog"
+  naver:
+    host: "https://openapi.naver.com"
+    client-id: XI9NYSr_em4IHuvJ_Ovz
+    client-secret: A7Gr0_9sGZ
+    search-blog:
+      url: "/v1/search/blog.json"

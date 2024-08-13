@@ -3,9 +3,9 @@ package me.jimmyberg.bss.infra.config
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.http.client.SimpleClientHttpRequestFactory
 import org.springframework.web.client.RestClient
-import org.springframework.web.util.UriBuilder
-import org.springframework.web.util.UriBuilderFactory
+import java.time.Duration
 
 @Configuration
 class RestClientConfig {
@@ -15,9 +15,11 @@ class RestClientConfig {
         @Value("\${open-api.kakao.host}") host: String,
         @Value("\${open-api.kakao.authorization}") authorization: String,
     ): RestClient {
+        RestClient.create()
         return RestClient
             .builder()
             .baseUrl(host)
+            .requestFactory(simpleClientHttpRequestFactory())
             .defaultHeaders {
                 it["Authorization"] = authorization
             }
@@ -33,11 +35,19 @@ class RestClientConfig {
         return RestClient
             .builder()
             .baseUrl(host)
+            .requestFactory(simpleClientHttpRequestFactory())
             .defaultHeaders {
                 it["X-Naver-Client-id"] = clientId
                 it["X-Naver-Client-Secret"] = clientSecret
             }
             .build()
+    }
+
+    private fun simpleClientHttpRequestFactory(): SimpleClientHttpRequestFactory {
+        return SimpleClientHttpRequestFactory().apply {
+            this.setConnectTimeout(Duration.ofSeconds(5))
+            this.setReadTimeout(Duration.ofSeconds(10))
+        }
     }
 
 }

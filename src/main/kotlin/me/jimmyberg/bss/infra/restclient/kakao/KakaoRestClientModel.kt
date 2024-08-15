@@ -3,9 +3,9 @@ package me.jimmyberg.bss.infra.restclient.kakao
 import com.fasterxml.jackson.annotation.JsonProperty
 
 data class KakaoSearchBlogRequest(
-    private val query: String,
-    private val page: Int,
-    private val size: Int
+    val query: String,
+    val page: Int,
+    val size: Int
 ) {
     fun params(): String {
         return "query=$query&page=$page&size=$size"

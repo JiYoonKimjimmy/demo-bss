@@ -1,9 +1,9 @@
 package me.jimmyberg.bss.infra.restclient.naver
 
 data class NaverSearchBlogRequest(
-    private val query: String,
-    private val start: Int,
-    private val display: Int
+    val query: String,
+    val start: Int,
+    val display: Int
 ) {
     fun params(): String {
         return "query=$query&start=$start&display=$display"

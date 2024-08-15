@@ -15,7 +15,7 @@
 - Spring Boot 3.3.2
 - Gradle 8.9
 - H2 Database
-- KotlinDSL
+- Exposed
 
 ### 프로젝트 Build
 1. `git repository` clone or download

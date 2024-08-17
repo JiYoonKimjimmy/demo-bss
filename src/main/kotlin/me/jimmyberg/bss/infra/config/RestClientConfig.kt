@@ -15,7 +15,6 @@ class RestClientConfig {
         @Value("\${open-api.kakao.host}") host: String,
         @Value("\${open-api.kakao.authorization}") authorization: String,
     ): RestClient {
-        RestClient.create()
         return RestClient
             .builder()
             .baseUrl(host)

@@ -23,6 +23,16 @@ class KakaoRestClientServiceTest @Autowired constructor(
                 response.documents.size shouldBe 10
             }
         }
+
+        `when`("카카오 블로그 조회 요청 3회 시도하여") {
+            val response = kakaoRestClientService.searchBlogWithRetry(request)
+
+            then("정상 응답 확인한다") {
+                response shouldNotBe null
+                response!!.meta.isEnd shouldBe false
+                response.documents.size shouldBe 10
+            }
+        }
     }
 
 })

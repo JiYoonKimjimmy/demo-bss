@@ -5,6 +5,10 @@ import java.time.format.DateTimeFormatter
 
 class FakeKakaoRestClientService : KakaoRestClientAdapter {
 
+    override fun searchBlogWithRetry(request: KakaoSearchBlogRequest): KakaoSearchBlogResponse? {
+        TODO("Not yet implemented")
+    }
+
     override fun searchBlog(request: KakaoSearchBlogRequest): KakaoSearchBlogResponse? {
         return KakaoSearchBlogResponse(
             meta = KakaoSearchBlogResponse.Meta(
